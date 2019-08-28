@@ -48,16 +48,18 @@ function managerPrompt() {
 
 //list products
 function viewProducts() {
-    connection.query('SELECT item_id, product_name, prices, stock_quantity FROM products', function (err) {
+    connection.query('SELECT item_id, product_name, price, stock_quantity FROM products', function (err,data) {
         if (err) throw (err)
+        console.table(data)
         managerPrompt()
     })
 }
 
 // which item has less than 5 quantity in stock
 function stockUnder5() {
-    connection.query('SELECT item_id, product_name FROM products WHERE stock_quantity < 5', function (err) {
+    connection.query('SELECT item_id, product_name FROM products WHERE stock_quantity < 5', function (err,data) {
         if (err) throw (err)
+        console.table(data)
         managerPrompt();
     })
 }
