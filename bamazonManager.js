@@ -110,7 +110,7 @@ function addProduct(){
         var department = res.department;
         var price = res.price;
         var stock = res.quantity;
-        connection.query('INSERT INTO products (product_name,department_name,price,stock_quantity VALUE (?,?,?,?))',[product,department,price,stock],function(err){
+        connection.query('INSERT INTO products (product_name,department_name,price,stock_quantity) VALUES (?,?,?,?)',[product,department,price,stock],function(err){
             if(err) throw (err);
             console.log(`Added ${product} to inventory`);
             managerPrompt();
