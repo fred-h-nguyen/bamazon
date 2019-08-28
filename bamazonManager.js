@@ -36,7 +36,7 @@ function managerPrompt() {
 
                 break;
 
-            case 'Add New Product':
+            case 'Add New Product': addProduct();
 
                 break;
 
@@ -46,6 +46,7 @@ function managerPrompt() {
     })
 }
 
+//list products
 function viewProducts() {
     connection.query('SELECT item_id, product_name, prices, stock_quantity FROM products', function (err) {
         if (err) throw (err)
@@ -53,12 +54,15 @@ function viewProducts() {
     })
 }
 
+// which item has less than 5 quantity in stock
 function stockUnder5() {
     connection.query('SELECT item_id, product_name FROM products WHERE stock_quantity < 5', function (err) {
         if (err) throw (err)
         managerPrompt();
     })
 }
+
+//add to stock
 
 function addInventory() {
     inquirer.prompt([{
@@ -80,6 +84,40 @@ function addInventory() {
     })
 }
 
+//add product
+
 function addProduct(){
-    inquirer.prompt([{}])
+    inquirer.prompt([{
+        type:'input',
+        name:'product',
+        message:'Product Name:'
+    },{
+        type:'input',
+        name:'department',
+        message:'Department Name:'
+    },{
+        type: 'number',
+        name: 'price',
+        message: 'Price of product:'
+    },{
+        type: 'number',
+        name: 'quantity',
+        message: 'Initial Stock Quantity:'
+    }]).then(function(res){
+        var product = res.product;
+        var department = res.department;
+        var price = res.price;
+        var stock = res.quantity;
+        connection.query('INSERT INTO products (product_name,department_name,price,stock_quantity VALUE (?,?,?,?))',[product,department,price,stock],function(err){
+            if(err) throw (err);
+            console.log(`Added ${product} to inventory`);
+            managerPrompt();
+        })
+    })
 }
+
+//start connection and run the prompt
+connection.connect(function(err){
+    if (err) throw (err);
+    managerPrompt();
+})
