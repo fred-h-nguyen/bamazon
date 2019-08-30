@@ -19,7 +19,6 @@ function showItems() {
     connection.query('SELECT item_id,product_name,price FROM products', function (err, data) {
         if (err) throw (err);
         var table = new Table({ head: ['item_id', 'product_name', 'price'] })
-        console.log(data)
         data.forEach(function (product) {
             table.push([product.item_id, product.product_name, product.price])
         })
