@@ -24,8 +24,7 @@ function showItems() {
             table.push([product.item_id, product.product_name, product.price])
         })
         console.log(table.toString());
-        connection.end()
-        //prompt();
+        prompt();
     })
 }
 
