@@ -1,5 +1,6 @@
 //required ==============================================
 var inquirer = require('inquirer');
+var Table = require('cli-table');
 //mysql
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -13,13 +14,20 @@ var connection = mysql.createConnection({
 //functions
 
 function viewProfits() {
-    var query = `SELECT departments.department_id,departments.department_name,over_head_costs, SUM(product_sales) AS product_sales, (SUM(product_sales)-departments.over_head_costs) AS total_profit FROM departments `
+    var query = `SELECT departments.department_id,departments.department_name,over_head_costs, SUM(product_sales) AS product_sales, (SUM(product_sales)-departments.over_head_costs) AS total_profits FROM departments `
     query += `LEFT JOIN products ON departments.department_name = products.department_name `;
-    query += `GROUP BY department_id;`;
+    query += `GROUP BY department_name `;
+    query+= `ORDER BY department_id`
 
     connection.query(query, function (err,data) {
         if (err) throw (err)
-        console.table(data);
+        console.log(data)
+        var table = new Table({ head: ['department_id', 'department_name', 'over_head_costs', 'product_sales','total_profits'] })
+
+        data.forEach(function (department) {
+            table.push([department.department_id, department.department_name, department.over_head_costs, department.product_sales, department.total_profits])
+        })
+        console.log(table.toString())
         prompt();
     })
 }
