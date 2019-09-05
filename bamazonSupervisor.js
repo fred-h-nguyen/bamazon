@@ -21,7 +21,7 @@ function viewProfits() {
 
     connection.query(query, function (err,data) {
         if (err) throw (err)
-        console.log(data)
+        //console.log(data)
         var table = new Table({ head: ['department_id', 'department_name', 'over_head_costs', 'product_sales','total_profits'] })
 
         data.forEach(function (department) {
