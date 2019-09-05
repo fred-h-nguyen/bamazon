@@ -67,23 +67,29 @@ npm install
 ## Usage
 
 * This is how the customer uses application to interact with the store and buy an item.
+
 ![buy_item](images/buy_item.gif)
 
 * When there is not enough stock for the customer to buy.
+
 ![insufficient_quantity](images/insufficient_quantity.gif)
 
 * Manager using the application to interact with the inventory of the items like check for low inventory and adding inventory.
+
 ![show_inventory](images/show_inventory.gif)
 
 ![add_inventory](images/add_inventory.gif)
 
 * Manager using the application to add a new product to the list.
+
 ![add_product](images/add_product.gif)
 
 * Supervisor checking the profits.
+
 ![show_profits](images/show_profit.gif)
 
 * Supervisor adding a new department to the store.
+
 ![add_department](images/add_department.gif)
 
 
