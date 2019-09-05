@@ -65,7 +65,7 @@ npm install
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-[![buy_item]]
+![buy_item](images/buy_item.gif)
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
@@ -97,7 +97,3 @@ Contributions are what make the open source community such an amazing place to b
 Fred Nguyen - fred-h-nguyen@gmail.com
 
 Project Link: [https://github.com/fred-h-nguyen/bamazon](https://github.com/fred-h-nguyen/bamazon)
-
-<!--Links for the gifs--!>
-
-[buy_item]: images/buy_item.gif
