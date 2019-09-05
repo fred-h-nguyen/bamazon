@@ -100,4 +100,4 @@ Project Link: [https://github.com/fred-h-nguyen/bamazon](https://github.com/fred
 
 <!--Links for the gifs--!>
 
-[buy_item]: (./images/buy_item.gif)
+[buy_item]: images/buy_item.gif
