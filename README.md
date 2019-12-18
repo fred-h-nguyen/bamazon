@@ -105,6 +105,6 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Fred Nguyen - fred-h-nguyen@gmail.com
+Fred Nguyen - fred.h.nguyen@gmail.com
 
 Project Link: [https://github.com/fred-h-nguyen/bamazon](https://github.com/fred-h-nguyen/bamazon)
